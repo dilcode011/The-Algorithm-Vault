@@ -8,7 +8,10 @@ It assumes that all features in the dataset are **mutually independent**.
 * *Example:* It assumes that the presence of the word "Money" in an email has nothing to do with the word "Free."
 * In reality, this is rarely true (words are often linked), but the algorithm still performs surprisingly well!
 
-
+<img src="naive1.webp"/>
+<img src="naive2.webp"/>
+<img src="naive3.webp"/>
+<img src="naive4.webp"/>
 
 ## 2. The Math (Bayes' Theorem)
 The core formula calculates the **Posterior Probability**:
