@@ -59,3 +59,49 @@ We implement the algorithm on a **Student Placement Dataset** (`cgpa`, `iq` $\ri
     ```
 3.  Open `gradient-boosting-classification-demo.ipynb` to see the code in action.
 
+
+
+# Gradient Boosting & XGBoost
+
+## 1. The Concept
+**Gradient Boosting** is an ensemble technique where new models are added to correct the errors made by existing models. Models are added **sequentially** until no further improvements can be made.
+
+* **Random Forest (Bagging):** Trains many trees in parallel (independently) and averages them.
+* **Boosting:** Trains trees one by one. Tree 2 learns from the mistakes of Tree 1. Tree 3 learns from the mistakes of Tree 2.
+
+### What is XGBoost?
+**XGBoost** stands for **Extreme Gradient Boosting**. It is an optimized implementation of Gradient Boosting designed to be highly efficient, flexible, and portable. It dominates structured/tabular datasets.
+
+
+
+## 2. The Math (Simplified)
+The core idea is learning from **Residuals** (Errors).
+
+1.  **Model 1:** Predicts the target $y$. Calculates error ($y - \hat{y}$).
+2.  **Model 2:** Tries to predict the **error** of Model 1 (not the original $y$).
+3.  **Final Prediction:** Sum of all models.
+    $$y_{pred} = Model_1(x) + \eta \cdot Model_2(x) + \eta \cdot Model_3(x) ...$$
+    *(Where $\eta$ is the learning rate)*
+
+### Key Hyperparameters
+* **Learning Rate (Eta):** How much contribution each tree makes (lower = slower but more accurate).
+* **Max Depth:** How deep each tree can grow (controls overfitting).
+* **Subsample:** Percentage of data used for each tree (adds randomness).
+
+## 3. XGBoost vs. Random Forest
+| Feature | Random Forest | XGBoost |
+| :--- | :--- | :--- |
+| **Method** | Bagging (Parallel) | Boosting (Sequential) |
+| **Overfitting** | Harder to overfit | Easier to overfit (needs tuning) |
+| **Speed** | Fast | Very Fast (Optimized) |
+| **Missing Values**| Fails (usually) | **Handles automatically** |
+| **Performance** | Great | **State-of-the-Art** |
+
+## 4. Resources
+### 📖 Documentation
+* [XGBoost Official Documentation](https://xgboost.readthedocs.io/en/stable/)
+* [Scikit-Learn: Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting)
+
+### 📺 Videos
+* [StatQuest: Gradient Boosting](https://www.youtube.com/watch?v=3CC4N4z3GJc)
+* [StatQuest: XGBoost Clearly Explained](https://www.youtube.com/watch?v=OtD8wVaFm6E)
