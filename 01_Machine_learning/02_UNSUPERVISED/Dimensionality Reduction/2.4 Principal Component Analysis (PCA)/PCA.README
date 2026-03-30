@@ -1,0 +1,37 @@
+# Principal Component Analysis (PCA)
+
+## 1. The Concept
+PCA is an unsupervised **Dimensionality Reduction** technique. 
+
+Imagine you have a 3D object, like a teapot. If you shine a flashlight on it, it casts a 2D shadow on the wall. 
+* If you hold the teapot by the handle facing the wall, the shadow just looks like a circle. You lost the "teapot" shape.
+* If you turn the teapot sideways, the 2D shadow clearly looks like a teapot (you can see the spout and handle). 
+
+**PCA is the math that finds the perfect angle to shine the flashlight so that the resulting "shadow" (lower dimensions) keeps the maximum amount of original information (variance).**
+
+[Image of 3D to 2D PCA projection]
+
+## 2. The Math (Simplified)
+PCA relies heavily on Linear Algebra. Here is the step-by-step process the algorithm does under the hood:
+
+1.  **Standardize the Data:** Ensure all features have a mean of 0 and variance of 1.
+2.  **Covariance Matrix:** Calculate how each feature relates to every other feature.
+3.  **Eigenvectors and Eigenvalues:** * **Eigenvectors:** The *directions* where the data varies the most (the Principal Components).
+    * **Eigenvalues:** The *magnitude* of that variance (how important that direction is).
+4.  **Sort & Select:** Sort the Eigenvectors by their Eigenvalues in descending order. Keep the top $N$ components.
+5.  **Project:** Multiply the original data by these top components to get the new, compressed dataset.
+
+## 3. Why use PCA?
+1.  **Visualization:** Humans cannot see in 30 dimensions. PCA can compress 30 features down to 2 or 3 so we can graph them on a screen.
+2.  **Speed Up Training:** Feeding 2 Principal Components into a Neural Network is much faster than feeding 50 raw features.
+3.  **Noise Reduction:** By dropping the lowest Principal Components, you often drop the random noise in your data.
+
+> **⚠️ CRITICAL RULE:** You MUST scale your data (using `StandardScaler`) before applying PCA. If one feature is measured in thousands and another in decimals, PCA will wrongly assume the larger number is more important.
+
+## 4. Resources
+### 📖 Documentation
+* [Scikit-Learn: PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)
+
+### 📺 Videos
+* [StatQuest: PCA Main Ideas in Only 5 Minutes](https://www.youtube.com/watch?v=HMOI_lkzW08) *(Highly Recommended)*
+* [StatQuest: PCA Step-by-Step](https://www.youtube.com/watch?v=FgakZw6K1QQ)

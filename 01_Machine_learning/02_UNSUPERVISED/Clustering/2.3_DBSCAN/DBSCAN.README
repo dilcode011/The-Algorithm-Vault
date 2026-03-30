@@ -1,0 +1,35 @@
+# DBSCAN (Density-Based Spatial Clustering)
+
+## 1. The Concept
+DBSCAN groups together points that are closely packed together (high density) and marks points that lie alone in low-density regions as **Outliers** (Noise).
+
+Unlike K-Means, which assumes clusters are circular/spherical, DBSCAN can find clusters of **arbitrary shapes**.
+
+### How it works (The Rules of Density)
+DBSCAN relies on two crucial parameters:
+1.  **`eps` (Epsilon):** The maximum distance between two points for them to be considered neighbors (the radius of a neighborhood).
+2.  **`min_samples`:** The minimum number of points required inside an `eps` radius to form a "dense region" (a cluster).
+
+### Point Classifications
+Based on those two parameters, DBSCAN classifies every data point into one of three categories:
+* **Core Point:** A point that has at least `min_samples` within its `eps` radius. (The heart of a cluster).
+* **Border Point:** A point that has fewer than `min_samples` in its radius, but is close enough to be reached by a Core Point. (The edge of a cluster).
+* **Noise (Outlier):** A point that is neither a Core nor a Border point. (It belongs to no cluster).
+
+
+
+## 2. DBSCAN vs. K-Means
+| Feature | K-Means | DBSCAN |
+| :--- | :--- | :--- |
+| **Number of Clusters** | Must be guessed upfront (K) | Automatically determined |
+| **Cluster Shape** | Forces spherical/circular shapes | Can find weird, complex shapes |
+| **Outliers/Noise** | Forces outliers into a cluster | Automatically detects & isolates noise |
+| **Sensitivity** | Sensitive to outliers | Sensitive to the `eps` parameter |
+
+## 3. Resources
+### 📖 Documentation
+* [Scikit-Learn: DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html)
+* [Visualizing DBSCAN (Interactive)](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
+
+### 📺 Videos
+* [StatQuest: DBSCAN Clustering Clearly Explained](https://www.youtube.com/watch?v=RDZUdRSDOok)
