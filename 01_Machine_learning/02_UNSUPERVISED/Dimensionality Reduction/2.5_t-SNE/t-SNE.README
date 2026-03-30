@@ -1,0 +1,29 @@
+# t-SNE (t-Distributed Stochastic Neighbor Embedding)
+
+## 1. The Concept
+t-SNE is a **non-linear** dimensionality reduction technique. While PCA is mostly used to speed up machine learning models by compressing features, **t-SNE is almost exclusively used for Data Visualization.**
+
+It is incredibly good at taking incredibly complex data (like 784 pixels of an image or 300 dimensions of a word embedding) and mapping it down to 2D or 3D so humans can look at it.
+
+### How it works (The Intuition)
+1. **In High Dimensions:** t-SNE measures the distance between a point and all other points, converting these distances into probabilities. Points that are close together get a high probability; points far away get a low probability.
+2. **In Low Dimensions (2D/3D):** It scatters points randomly on a 2D graph.
+3. **The Physics Simulation:** It acts like points are connected by springs. It pulls points together if they had a high probability in the high-dimensional space, and pushes them apart if they had a low probability. It repeats this until the map stabilizes.
+
+## 2. t-SNE vs. PCA
+| Feature | PCA | t-SNE |
+| :--- | :--- | :--- |
+| **Math** | Linear (Preserves global variance) | Non-Linear (Preserves local similarities) |
+| **Primary Use** | Feature compression for models | Visualizing complex clusters |
+| **Speed** | Very Fast | Very Slow (Struggles with > 10,000 rows) |
+| **Interpretability** | Axes have mathematical meaning | Axes mean nothing (distance is what matters) |
+
+## 3. Important Quirks of t-SNE
+* **Perplexity:** This is the most important hyperparameter. It basically means "how many close neighbors should each point care about?" (Usually set between 5 and 50).
+* **Randomness:** Because it starts with a random scatter, running t-SNE twice will give you slightly different looking maps.
+* **Do not use for clustering:** You should visually look at t-SNE, but you shouldn't run K-Means *on top* of t-SNE output. 
+
+## 4. Resources
+* [Scikit-Learn: t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)
+* [StatQuest: t-SNE Clearly Explained](https://www.youtube.com/watch?v=NEaUSP4YerM)
+* [Distill: How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) (Interactive and highly recommended)
