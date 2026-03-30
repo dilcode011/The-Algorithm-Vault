@@ -1,0 +1,35 @@
+# K-Means Clustering
+
+## 1. The Concept
+K-Means is an **Unsupervised Learning** algorithm used to group similar un-labeled data points together into clusters.
+
+### How it works (The Algorithm)
+1. **Choose K:** You decide how many clusters (groups) you want to find (e.g., K=3).
+2. **Initialize Centroids:** The algorithm randomly places K "center points" (centroids) on the map.
+3. **Assign Points:** Every data point looks at the centroids and attaches itself to the closest one.
+4. **Update Centroids:** The algorithm calculates the true center of all the points in each newly formed group, and moves the centroid to that exact center.
+5. **Repeat:** Steps 3 and 4 repeat over and over until the centroids stop moving (Convergence).
+
+
+
+## 2. The "Elbow Method" (Finding the perfect K)
+Since we don't have labels, how do we know if we should group our data into 2 clusters, 3 clusters, or 10 clusters?
+
+We use the **Elbow Method**. 
+We run K-Means for K=1, 2, 3, 4, etc., and calculate the **WCSS** (Within-Cluster Sum of Squares) — basically, how tightly packed the clusters are. 
+* As K increases, WCSS always drops. 
+* We look for the "Elbow" in the graph: the point where adding more clusters doesn't improve the tightness significantly.
+
+
+
+## 3. Real-World Use Cases
+* **Customer Segmentation:** Grouping shoppers by purchasing habits for targeted marketing.
+* **Document Clustering:** Grouping news articles by topic.
+* **Image Compression:** Reducing the number of colors in an image to the K most dominant colors.
+
+## 4. Resources
+### 📖 Documentation
+* [Scikit-Learn: K-Means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+
+### 📺 Videos
+* [StatQuest: K-means clustering](https://www.youtube.com/watch?v=4b5d3muPQmA)

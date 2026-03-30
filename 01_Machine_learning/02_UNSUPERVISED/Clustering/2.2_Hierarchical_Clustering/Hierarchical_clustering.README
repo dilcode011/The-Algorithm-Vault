@@ -1,0 +1,36 @@
+# Hierarchical Clustering
+
+## 1. The Concept
+Hierarchical Clustering groups data points into a tree of clusters. There are two main approaches:
+* **Agglomerative (Bottom-Up):** This is the most common. Every single data point starts as its own cluster. Then, the two closest points join together. Then, the next closest join, until everything is one giant cluster.
+* **Divisive (Top-Down):** All points start in one giant cluster, and it splits them apart step-by-step.
+
+### The Superpower: The Dendrogram
+Because it builds a hierarchy, you can visualize the entire process using a tree-like diagram called a **Dendrogram**. 
+You can look at the Dendrogram *after* the algorithm runs and say, "Ah, it looks like 3 clusters makes the most sense here," and draw a horizontal line to cut the tree.
+
+
+
+## 2. How it calculates distance (Linkage)
+In K-Means, we measure the distance between a point and a centroid. 
+In Hierarchical Clustering, we have to measure the distance between **clusters**. We do this using **Linkage Criteria**:
+
+1.  **Single Linkage:** Distance between the two *closest* points of two clusters. (Prone to creating long, stringy clusters).
+2.  **Complete Linkage:** Distance between the two *furthest* points of two clusters.
+3.  **Average Linkage:** The average distance of all points in cluster A to all points in cluster B.
+4.  **Ward's Method:** Minimizes the **variance** within the clusters being merged. (This is the default and usually the best performing).
+
+## 3. K-Means vs. Hierarchical
+| Feature | K-Means | Hierarchical |
+| :--- | :--- | :--- |
+| **Number of Clusters (K)** | Must be specified upfront | Decided later using Dendrogram |
+| **Dataset Size** | Great for massive datasets | Very slow on large datasets ($O(n^3)$) |
+| **Shape Assumption** | Assumes spherical clusters | Can handle slightly more complex shapes |
+
+## 4. Resources
+### 📖 Documentation
+* [Scikit-Learn: Agglomerative Clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html)
+* [SciPy: Hierarchical Clustering & Dendrograms](https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html)
+
+### 📺 Videos
+* [StatQuest: Hierarchical Clustering](https://www.youtube.com/watch?v=7xHsRkOdVZE)
