@@ -31,6 +31,3 @@ Words often appear in different forms (e.g., *run, running, ran*). We want the c
 ### 📖 Documentation
 * [NLTK (Natural Language Toolkit) Book](https://www.nltk.org/book/)
 * [SpaCy 101: Everything you need to know](https://spacy.io/usage/spacy-101)
-
-### 📺 Videos
-* [StatQuest: Word2Vec and Text Preprocessing](https://www.youtube.com/watch?v=viZrOnJclY0)
