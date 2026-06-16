@@ -29,7 +29,7 @@ The constraint region for Ridge is a **circle**, so the solution rarely hits exa
 ## 3. Lasso vs. Ridge Comparison
 | Feature | Ridge (L2) | Lasso (L1) |
 | :--- | :--- | :--- |
-| **Penalty** | Square of coefficients ($\beta^2$) | Absolute value of coefficients ($|\beta|$) |
+| **Penalty** | Square of coefficients ($\beta^2$) | Absolute value of coefficients ($\beta$)| |
 | **Zero Coefficients** | No (only close to zero) | **Yes** (Exact zero) |
 | **Feature Selection** | No | **Yes** |
 | **Best Used When** | All features are somewhat useful | Many features are useless/noise |
